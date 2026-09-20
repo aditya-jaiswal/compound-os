@@ -1,0 +1,17 @@
+# Cross-domain feature lookup (demo: Acme Corp). Check FIRST for feature questions.
+# Each feature maps to its artifacts across domains.
+features:
+  smart-alerts:
+    summary: "Threshold + anomaly alerts on any dashboard metric."
+    prd: product/PRDs/smart-alerts.md
+    roadmap: product/roadmap/roadmap.md
+    sprint: delivery/sprints/current/sprint-q4-launch.md
+    customers_asking: [globex, initech]
+  saved-views:
+    summary: "Shareable saved filters across dashboards."
+    roadmap: product/roadmap/roadmap.md
+    customers_asking: [initech]
+  aql-query-layer:
+    summary: "Acme Query Language: ask data questions in natural language."
+    roadmap: product/roadmap/roadmap.md
+    competitive: competitive/competitors/datenwerk.md

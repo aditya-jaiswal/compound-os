@@ -1,0 +1,12 @@
+{
+  "name": "compound-os",
+  "owner": { "name": "Aditya Jaiswal" },
+  "description": "Compound OS: an AI-run, compounding-memory operating system for product teams. Install the plugin, then say \"set up my Compound OS\".",
+  "plugins": [
+    {
+      "name": "compound-os",
+      "source": ".",
+      "description": "The full Compound OS: daily-loop commands, skills (incl. os-builder setup), and the domain framework. After install, say \"set up my Compound OS\"."
+    }
+  ]
+}

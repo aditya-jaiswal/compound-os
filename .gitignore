@@ -1,0 +1,33 @@
+# ── OS / editor cruft ──────────────────────────────
+.DS_Store
+*.swp
+*.log
+Thumbs.db
+
+# ── Secrets & local config (NEVER commit) ──────────
+.env
+*.env
+.env.embedding*
+.claude/settings.local.json
+.mcp.json
+
+# ── PRIVATE: per-user, never shared ────────────────
+# Each teammate keeps their OWN copy of these locally.
+me.local.md
+me.local.json
+people/*
+!people/.gitkeep
+!people/README.md
+personal-brand/
+open-loops.md
+waiting-on.md
+daily/
+
+# ── Engine scratch ─────────────────────────────────
+.claude/projects/
+.claude/todos/
+__pycache__/
+*.pyc
+
+# ── Build artifacts ────────────────────────────────
+node_modules/

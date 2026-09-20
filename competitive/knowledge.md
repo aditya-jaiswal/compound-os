@@ -1,0 +1,1 @@
+# competitive - knowledge (stable facts)

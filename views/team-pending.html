@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team Pending · Acme</title>
+<style>
+:root{--bg:#0b1f3a;--ink:#1f2328;--muted:#6b7280;--line:#e6e9ef;--accent:#4361ee;
+--open:#6b7280;--prog:#2563eb;--blocked:#dc2626;--done:#16a34a;--warn:#b45309;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:#f6f8fb;}
+header{background:var(--bg);color:#fff;padding:22px 28px;}
+header h1{margin:0;font-size:20px;letter-spacing:-.3px}
+header .sub{opacity:.8;font-size:12px;margin-top:4px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+.stat{background:rgba(255,255,255,.08);border-radius:10px;padding:8px 14px;min-width:90px}
+.stat .n{font-size:22px;font-weight:700}
+.stat .l{font-size:11px;opacity:.8;text-transform:uppercase;letter-spacing:.5px}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 28px 60px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;color:var(--ink)}
+.chip.active{background:var(--bg);color:#fff;border-color:var(--bg)}
+.owner{background:#fff;border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden}
+.owner h2{margin:0;padding:12px 16px;font-size:15px;background:#f1f4f9;border-bottom:1px solid var(--line);
+display:flex;justify-content:space-between;align-items:center}
+.owner h2 .cnt{font-size:12px;color:var(--muted);font-weight:500}
+.row{display:grid;grid-template-columns:1fr auto auto auto auto;gap:10px;align-items:center;
+padding:11px 16px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:none}
+.row .item{font-size:14px}
+.row .meta{font-size:11px;color:var(--muted);margin-top:2px}
+.badge{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap;text-transform:capitalize}
+.b-open{background:#f1f3f7;color:var(--open)}
+.b-in-progress{background:#e0ecff;color:var(--prog)}
+.b-blocked{background:#fde8e8;color:var(--blocked)}
+.b-done{background:#e6f6ec;color:var(--done)}
+.src{font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 7px;text-transform:uppercase;letter-spacing:.4px}
+.kind{font-size:10px;font-weight:600;border-radius:6px;padding:2px 7px;text-transform:uppercase;letter-spacing:.4px}
+.k-task{background:#eef2ff;color:#4361ee}
+.k-follow-up{background:#fff7ed;color:#b45309}
+.due{font-size:12px;color:var(--muted)}
+.due.over{color:var(--blocked);font-weight:600}
+.age.old{color:var(--blocked)}
+.note{font-size:13px;color:var(--muted);margin:6px 0 0}
+footer{max-width:1080px;margin:0 auto;padding:0 28px 40px;color:var(--muted);font-size:12px}
+@media(max-width:640px){.row{grid-template-columns:1fr;gap:4px}}
+</style></head>
+<body>
+<header>
+  <h1>Team Pending · Acme</h1>
+  <div class="sub">What is open teamwide and under whom · generated 2026-09-10 01:05</div>
+  <div class="stats">
+    <div class="stat"><div class="n">10</div><div class="l">Open</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">Blocked</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Overdue</div></div>
+    <div class="stat"><div class="n">8</div><div class="l">Owners</div></div>
+  </div>
+</header>
+<div class="wrap">
+  <div class="note">Tip: click your name to see just your items (your self view). The full board is everyone's pending work.</div>
+  <div class="filters" id="filters"></div>
+  <div id="board"></div>
+</div>
+<footer>Source of truth: GitHub board + team-loops ledger. This page is published from the team repo (no pull needed to view). Hide closed items by default.</footer>
+<script>
+const DATA = [{"id": "TL-001", "owner": "Sam Chen", "item": "Ship smart-alerts backend (thresholds + anomaly)", "source": "arch", "kind": "task", "status": "in-progress", "since": "2026-09-02", "due": "2026-09-12", "notes": "Q4 launch must-land", "age": 8, "overdue": false, "account": ""}, {"id": "TL-002", "owner": "Priya Nair", "item": "Alerts config UI + empty states", "source": "design", "kind": "task", "status": "in-progress", "since": "2026-09-03", "due": "2026-09-11", "notes": "Consumes design system", "age": 7, "overdue": false, "account": ""}, {"id": "TL-003", "owner": "Alex Kim", "item": "AQL query parser v1", "source": "arch", "kind": "task", "status": "open", "since": "2026-09-04", "due": "2026-09-18", "notes": "Natural-language query layer", "age": 6, "overdue": false, "account": ""}, {"id": "TL-004", "owner": "Dana Osei", "item": "Staging stabilization + regression suite", "source": "arch", "kind": "task", "status": "blocked", "since": "2026-09-01", "due": "2026-09-15", "notes": "Blocks integration testing", "age": 9, "overdue": false, "account": ""}, {"id": "TL-005", "owner": "Jordan Rivera", "item": "Globex: send pilot recap + success criteria", "source": "customer", "kind": "follow-up", "status": "open", "since": "2026-09-08", "due": "2026-09-11", "notes": "Post-demo", "age": 2, "overdue": false, "account": "globex"}, {"id": "TL-006", "owner": "Jordan Rivera", "item": "Put all Q4-launch workstreams on the board", "source": "standup", "kind": "task", "status": "open", "since": "2026-09-08", "due": "2026-09-10", "notes": "Only backend is tracked", "age": 2, "overdue": false, "account": ""}, {"id": "TL-007", "owner": "Taylor Vance", "item": "Initech: send saved-views proposal", "source": "customer", "kind": "follow-up", "status": "open", "since": "2026-09-07", "due": "2026-09-12", "notes": "Renewal lever", "age": 3, "overdue": false, "account": "initech"}, {"id": "TL-008", "owner": "Robin Park", "item": "Anomaly model eval + thresholds tuning", "source": "arch", "kind": "task", "status": "in-progress", "since": "2026-09-05", "due": "2026-09-16", "notes": "Feeds TL-001", "age": 5, "overdue": false, "account": ""}, {"id": "TL-009", "owner": "Noah Berg", "item": "Saved-views API + sharing", "source": "arch", "kind": "task", "status": "open", "since": "2026-09-06", "due": "2026-09-20", "notes": "Next after alerts", "age": 4, "overdue": false, "account": ""}, {"id": "TL-010", "owner": "Jordan Rivera", "item": "Reconcile roadmap after Globex feedback", "source": "board", "kind": "follow-up", "status": "open", "since": "2026-09-09", "due": "2026-09-11", "notes": "Move fleet-alerts up", "age": 1, "overdue": false, "account": "globex"}];
+let active = "All";
+const board = document.getElementById('board');
+const filters = document.getElementById('filters');
+const owners = [...new Set(DATA.map(r=>r.owner))].sort();
+function badge(s){return '<span class="badge b-'+s.replace(/\s/g,'-')+'">'+s+'</span>';}
+function render(){
+  const rows = DATA.filter(r=>r.status!=='done').filter(r=> active==='All' || r.owner===active);
+  const byOwner = {};
+  rows.forEach(r=>{(byOwner[r.owner]=byOwner[r.owner]||[]).push(r);});
+  board.innerHTML = Object.keys(byOwner).sort().map(o=>{
+    const items = byOwner[o].sort((a,b)=>({blocked:0,'in-progress':1,open:2}[a.status]||3)-({blocked:0,'in-progress':1,open:2}[b.status]||3));
+    return '<div class="owner"><h2>'+o+' <span class="cnt">'+items.length+' open</span></h2>'+
+      items.map(r=>{
+        const over = r.overdue ? ' over' : '';
+        const old = (r.age!==null && r.age>3 && r.status!=='done') ? ' old' : '';
+        const kind = r.kind||'follow-up';
+        return '<div class="row"><div><div class="item">'+r.item+'</div>'+
+          '<div class="meta">'+(r.notes||'')+'</div></div>'+
+          '<span class="kind k-'+kind.replace(/\s/g,'-')+'">'+kind+'</span>'+
+          '<span class="src">'+r.source+'</span>'+
+          badge(r.status)+
+          '<div class="due'+over+'">'+(r.due?('due '+r.due):'')+(r.age!==null?' · <span class="age'+old+'">'+r.age+'d</span>':'')+'</div>'+
+        '</div>';
+      }).join('')+'</div>';
+  }).join('') || '<p style="color:#6b7280">Nothing open here. 🎉</p>';
+}
+function renderFilters(){
+  filters.innerHTML = ['All',...owners].map(o=>'<span class="chip'+(o===active?' active':'')+'" data-o="'+o+'">'+o+'</span>').join('');
+  filters.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{active=c.dataset.o;renderFilters();render();});
+}
+renderFilters();render();
+</script>
+</body></html>

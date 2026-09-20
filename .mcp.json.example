@@ -1,0 +1,4 @@
+{
+  "_comment": "Copy to .mcp.json (gitignored) and add your own connectors. Each user connects their own Gmail/Slack/Calendar/GitHub. Never commit real tokens.",
+  "mcpServers": {}
+}

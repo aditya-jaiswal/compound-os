@@ -33,7 +33,7 @@ Three ideas do most of the work:
 ## What's inside
 
 - **A curated set of commands** (`.claude/commands/`) for the daily loop: `/morning-briefing`, `/triage-inbox`, `/log-call`, `/sprint-board`, `/capacity`, `/whatif`, `/team-accountability`, `/roadmap-update`, `/design-review`, `/qa-check`, `/draft-reply`, and more.
-- **5 skills** and **2 agents** for call summaries, DSU digests, voice-matched drafting, person notes, and research.
+- **6 skills** (five for daily work, plus `os-builder` for first-run setup) and **2 agents** for call summaries, DSU digests, voice-matched drafting, person notes, and research.
 - **A compounding-memory engine** and **retention + classification rules** baked into the structure.
 - **Two-sided accountability** with a graduation flow and a hard privacy wall.
 - **Generated dashboards** (`views/`), like a live team-pending board.
@@ -45,14 +45,14 @@ Two ways in. Either way, once it's open in Claude Code, just say: **"set up my C
 
 **A) Install as a plugin (no cloning)**
 ```
-/plugin marketplace add <your-github>/compound-os
+/plugin marketplace add aditya-jaiswal/compound-os
 /plugin install compound-os
 ```
 then say: **set up my Compound OS**
 
 **B) Clone the repo**
 ```bash
-git clone https://github.com/<your-github>/compound-os
+git clone https://github.com/aditya-jaiswal/compound-os
 cd compound-os
 # open in Claude Code, then say: set up my Compound OS
 ```
@@ -76,5 +76,5 @@ MIT. Use it, fork it, make it yours.
 ---
 
 <div align="center">
-Built by a working PM. If Compound OS is useful to you, a star helps others find it.
+Built by [Aditya Jaiswal](https://github.com/aditya-jaiswal), a working product manager. If Compound OS is useful to you, a star helps others find it.
 </div>

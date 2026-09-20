@@ -3,6 +3,6 @@
   "version": "0.1.0",
   "description": "A compounding-memory operating system for product teams, run by AI in Claude Code. Ships the daily-loop commands, skills (including os-builder first-run setup), and a domain-organized knowledge framework.",
   "author": { "name": "Aditya Jaiswal" },
-  "homepage": "https://github.com/adityaj-ai/compound-os",
+  "homepage": "https://github.com/aditya-jaiswal/compound-os",
   "keywords": ["product-management", "claude-code", "team-os", "pm", "operating-system", "compounding-memory", "skills"]
 }

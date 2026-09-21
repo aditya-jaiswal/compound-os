@@ -26,7 +26,7 @@ Say these are optional and can be added later: Slack ID, GitHub handle, and conn
 ## Step 2 - Scaffold (do it all; see `personal.md` for detail)
 1. Write `me.local.md` + `me.local.json` from the answers (gitignored).
 2. Replace the roster in `CLAUDE.md` + `team/roster.md` with their team (or just them).
-3. Clear the Acme demo content per `docs/reset.md`, keeping every `rules.md` and the empty memory files. Confirm once first.
+3. Clear ALL Acme demo content per `docs/reset.md` (rule-based: reset every domain's knowledge/hypotheses/rules to their headers, empty all working subfolders, empty the team-loops table, reset feature-index, delete DEMO-GUIDE.md). Confirm once first.
 4. Create the empty private layer: `open-loops.md`, `waiting-on.md`, `daily/` (so the daily commands have something to read).
 5. Seed one real thing if they offered a customer or current sprint.
 6. Reset `feature-index.yaml` to a stub with their features (or empty with the header).
@@ -70,7 +70,7 @@ Next (optional): connect tools, add teammates, or run /log-call on a real call.
 ## Exit checklist (all must be true)
 - [ ] `me.local.md` has real values, no "Jordan Rivera" left anywhere.
 - [ ] Roster in `CLAUDE.md` + `team/roster.md` is theirs.
-- [ ] No demo residue in live files (grep -ri 'acme\|globex\|initech\|jordan rivera' CLAUDE.md team/ views/ .claude/commands returns nothing).
+- [ ] No demo residue anywhere live: `grep -rIn -iE 'acme|globex|initech|hooli|umbrella|datenwerk|insighto|jordan rivera' . --include='*.md' --include='*.yaml' | grep -vE 'README|docs/|DEMO-GUIDE|skills/os-builder'` returns nothing.
 - [ ] `open-loops.md`, `waiting-on.md`, `daily/` exist (even if empty).
 - [ ] The first-win action actually ran and returned something.
 - [ ] No em dashes in anything written.

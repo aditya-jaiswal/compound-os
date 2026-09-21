@@ -1,2 +1,3 @@
 # design - rules (apply by default)
-> Confirmed patterns. Promote here from hypotheses.md after 5 confirmations; demote on contradiction.
+- Validate real demand (2+ accounts or a cited call) before designing a net-new surface. (confirmed 5x; promoted 2026-08)
+- Keep primary flows to 2 steps; anything longer needs a reason on the record.

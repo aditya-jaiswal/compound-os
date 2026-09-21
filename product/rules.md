@@ -1,2 +1,3 @@
 # product - rules (apply by default)
-> Confirmed patterns. Promote here from hypotheses.md after 5 confirmations; demote on contradiction.
+- Ship the smallest slice that a real account asked for; every roadmap item cites the account(s) behind it. (confirmed 5x; promoted 2026-08)
+- Anomaly detection leads the alerts story in demos; thresholds are table stakes, not the hook.

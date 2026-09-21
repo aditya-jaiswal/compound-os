@@ -5,7 +5,7 @@ Catch up on Slack: DMs, @-mentions, and key channel activity I need to act on. R
 ## Pull
 - **@-mentions of me** (the current user's `slack_id` from `me.local.md` - resolve it first, never assume): `slack_search_public_and_private` for recent mentions.
 - **DMs:** recent direct-message threads needing a reply.
-- **Key channels** (from roster): #dev, #dev-rel, #dev-qa, #dev-design, and customer channels (#globex, #initech-dev, #hooli-dev).
+- **Key channels** (from roster): #eng, #design, #qa, and your customer channels (one per account).
 - **AI-note meeting transcripts** posted in channels: flag them and offer to run `/log-call`.
 
 ## Classify (same urgency rules as email)

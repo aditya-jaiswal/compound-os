@@ -1,8 +1,8 @@
 {
-  "name": "Jordan Rivera",
-  "email": "jordan.rivera@acme.com",
-  "role": "Director of Product",
-  "github": "jrivera",
-  "slack_id": "U0PM1",
-  "timezone": "America/New_York"
+  "name": "Your Name",
+  "email": "you@yourcompany.com",
+  "role": "Your role",
+  "github": "your-handle",
+  "slack_id": "your-slack-id",
+  "timezone": "your/timezone"
 }
